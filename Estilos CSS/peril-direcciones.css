@@ -1,0 +1,83 @@
+/* Estilos para el formulario de dirección */
+#address-form {
+    margin-bottom: 20px;
+}
+
+#address-form h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#address-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#address-form label {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+#address-form input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#address-form button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#address-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para las direcciones guardadas */
+/* Estilos para las direcciones guardadas */
+#saved-addresses {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#saved-addresses h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#address-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#address-table th, #address-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+#address-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+#address-table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+#address-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#address-table td {
+    vertical-align: top;
+}

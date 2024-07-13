@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Estilos CSS/productos.css">
+    <link rel="stylesheet" href="Estilos CSS/modal-pago.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <link rel="icon" href="img/icon/carro.png" type="image/png">
+    <title>Carrito</title>
+</head>
+<body>
+    <div class="wrapper">
+        <aside>
+            <header>
+                <a href="index.html"><h1>TechVerse</h1></a>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="boton-menu boton-volver" href="productos.html"><i class="fa-solid fa-arrow-left"></i>Seguir Comprando</a>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito active" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="text-footer">© 2024 TechVerse</p>
+            </footer>
+        </aside>
+        <main>
+            <h2>Tu Carrito</h2>
+            <div id="contenedor-carrito">
+                <div class="carrito-vacio">
+                    <p>No hay productos en el carrito.</p>
+                </div>
+                <div id="carrito-productos" class="carrito-productos disabled"></div>
+                <div class="carrito-acciones disabled" id="carrito-acciones">
+                    <div class="carrito-acciones-izquierda">
+                        <button class="carrito-acciones-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                    </div>
+                    <div class="carrito-acciones-derecha">
+                        <div class="carrito-acciones-total">
+                            <p>Total:</p>
+                            <p id="total">S/. 0.00</p>
+                        </div>
+                        <a href="formulario-pago.php"><button class="carrito-acciones-comprar" id="button-checkout" onclick="mostrarFormularioPago()">Comprar Ahora</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', cargarCarrito);
+
+function cargarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const contenedorCarrito = document.getElementById('contenedor-carrito');
+    const carritoVacio = contenedorCarrito.querySelector('.carrito-vacio');
+    const carritoProductos = contenedorCarrito.querySelector('#carrito-productos');
+    const carritoAcciones = contenedorCarrito.querySelector('#carrito-acciones');
+    const total = document.getElementById('total');
+
+    if (carrito.length > 0) {
+        carritoVacio.classList.add('disabled');
+        carritoProductos.classList.remove('disabled');
+        carritoAcciones.classList.remove('disabled');
+        carritoProductos.innerHTML = '';
+
+        let totalPrecio = 0;
+        carrito.forEach((producto, index) => {
+            const productoElemento = document.createElement('div');
+            productoElemento.classList.add('carrito-producto');
+            productoElemento.innerHTML = `
+                <img src="${producto.imagenSrc}" alt="${producto.titulo}" class="carrito-producto-imagen">
+                <div class="carrito-producto-detalles">
+                    <h3 class="carrito-producto-titulo">${producto.titulo}</h3>
+                    <p class="carrito-producto-precio">${producto.precio}</p>
+                    <p class="carrito-producto-cantidad">Cantidad: ${producto.cantidad}</p>
+                    <p class="carrito-producto-subtotal">Subtotal: ${producto.subtotal}</p>
+                    <button class="carrito-producto-eliminar" onclick="eliminarProducto('${producto.id}', ${index})"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                </div>
+            `;
+            carritoProductos.appendChild(productoElemento);
+            totalPrecio += parseFloat(producto.subtotal.replace('S/. ', ''));
+        });
+        total.textContent = `S/. ${totalPrecio.toFixed(2)}`;
+    } else {
+        carritoVacio.classList.remove('disabled');
+        carritoProductos.classList.add('disabled');
+        carritoAcciones.classList.add('disabled');
+    }
+}
+
+function eliminarProducto(id, index) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+    if (carrito[index].cantidad > 1) {
+        carrito[index].cantidad -= 1;
+        const precioUnitario = parseFloat(carrito[index].precio.replace('S/. ', ''));
+        carrito[index].subtotal = `S/. ${(precioUnitario * carrito[index].cantidad).toFixed(2)}`;
+    } else {
+        carrito.splice(index, 1); // Elimina el producto si la cantidad es uno y se hace clic en eliminar
+    }
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    cargarCarrito();
+
+    // Actualizar el número de productos en el menú
+    const numeroProductos = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+    document.querySelector('.numerito').textContent = numeroProductos.toString();
+}
+
+function vaciarCarrito() {
+    localStorage.removeItem('carrito');
+    cargarCarrito();
+
+    // Actualizar el número de productos en el menú
+    document.querySelector('.numerito').textContent = '0';
+}
+    </script>
+</body>
+</html>

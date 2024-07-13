@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/icon/agregar-producto.png" type="image/png">
+    <link rel="stylesheet" href="Estilos CSS/productos.css">
+    <title>Computadores</title>
+</head>
+<body>
+    <div class="wrapper">
+        <aside>
+            <header>
+                <a href="index.html">
+                    <h1 class="techverse">TechVerse</h1>
+                </a>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a href="productos.html"><button class="boton-menu boton-categoria"><i class="fa-solid fa-hand-point-up"></i>Todos Los Productos</button></a>
+                    </li>
+                    <li>
+                        <a href="portatiles.html"><button class="boton-menu boton-categoria"><i class="fa-regular fa-hand-point-up"></i>Portatiles</button></a>
+                    </li>
+                    <li>
+                        <a href="computadores.html"><button class="boton-menu boton-categoria active"><i class="fa-regular fa-hand-point-up"></i>Computadores</button></a>
+                    </li>
+                    <li>
+                        <a href="perifericos.html"><button class="boton-menu boton-categoria"><i class="fa-regular fa-hand-point-up"></i>Perifericos</button></a>
+                    </li>
+                    <li>
+                        <a href="accesorios.html"><button class="boton-menu boton-categoria"><i class="fa-regular fa-hand-point-up"></i>Accesorios Adicionales</button></a>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i>Carrito <span class="numerito">0</span></a>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito" href="perfil.html"><i class="fa-regular fa-user"></i>Mi Perfil <span class="numerito">0</span></i></a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="text-footer">© 2024 TechVerse</p>
+            </footer>
+        </aside>
+        <main>
+            <h2 class="titulo-principal">Todos Los Productos</h2>
+            <div class="contenedor-productos">
+                <div class="productos">
+                    <img class="producto-imagen" src="img/coolers/Ccooler Halion.jpg" alt="" width="260px" height="265px">
+                    <div class="productos-detalles">
+                        <h3 class="producto-titulo">HALION</h3>
+                        <p class="producto-precio">S/. 80</p>
+                        <button class="producto-agregar" onclick="agregarAlCarrito(event)">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="productos">
+                    <img class="producto-imagen" src="img/coolers/cooler Air Boom AB 13 Luz Led.webp" alt="" width="260px" height="265px">
+                    <div class="productos-detalles">
+                        <h3 class="producto-titulo">HALION</h3>
+                        <p class="producto-precio">S/. 80</p>
+                        <button class="producto-agregar" onclick="agregarAlCarrito(event)">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="productos">
+                    <img class="producto-imagen" src="img/coolers/Cooler Blanco.webp" alt="" width="260px" height="265px">
+                    <div class="productos-detalles">
+                        <h3 class="producto-titulo">HALION</h3>
+                        <p class="producto-precio">S/. 80</p>
+                        <button class="producto-agregar" onclick="agregarAlCarrito(event)">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="productos">
+                    <img class="producto-imagen" src="img/coolers/Cooler Master.jpg" alt="" width="260px" height="265px">
+                    <div class="productos-detalles">
+                        <h3 class="producto-titulo">HALION</h3>
+                        <p class="producto-precio">S/. 80</p>
+                        <button class="producto-agregar" onclick="agregarAlCarrito(event)">Agregar al Carrito</button>
+                    </div>
+                </div>
+                <div class="productos">
+                    <img class="producto-imagen" src="img/coolers/COOLER SAC.jpg" alt="" width="260px" height="265px">
+                    <div class="productos-detalles">
+                        <h3 class="producto-titulo">HALION</h3>
+                        <p class="producto-precio">S/. 80</p>
+                        <button class="producto-agregar" onclick="agregarAlCarrito(event)">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor-whatsapp">
+                <a href="https://wa.me/916410461?text=¡Por%2C%20Favor%2C%20quiero%20más%20información">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <div class="info-hover">
+                    <p>Contactanos Para Mayor Informacion</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+          function agregarAlCarrito(event) {
+            event.preventDefault();
+
+            const producto = event.target.closest('.productos');
+            if (producto) {
+                const id = producto.getAttribute('data-id');
+                const imagenSrc = producto.querySelector('.producto-imagen').src;
+                const titulo = producto.querySelector('.producto-titulo').textContent;
+                const precio = producto.querySelector('.producto-precio').textContent;
+
+                const productoDetalles = {
+                    id,
+                    imagenSrc,
+                    titulo,
+                    precio,
+                    cantidad: 1,
+                    subtotal: precio
+                };
+
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                let productoExistente = carrito.find(item => item.id === id);
+
+                if (productoExistente) {
+                    productoExistente.cantidad += 1;
+                    productoExistente.subtotal = `S/. ${(parseFloat(productoExistente.precio.replace('S/. ', '')) * productoExistente.cantidad).toFixed(2)}`;
+                } else {
+                    carrito.push(productoDetalles);
+                }
+
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                actualizarNumerito();
+                console.log("Producto Agregado Al Carrito");
+            } else {
+                console.error("No se pudo encontrar el producto.");
+            }
+        }
+
+        function actualizarNumerito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const numerito = document.querySelector('.numerito');
+            if (numerito) {
+                numerito.textContent = carrito.length;
+            } else {
+                console.error("No se pudo encontrar el elemento numerito.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', actualizarNumerito);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', VerificarIniciSesion);
+    </script>
+</body>
+</html>

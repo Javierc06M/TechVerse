@@ -1,0 +1,686 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav {
+    color: white;
+    display: flex;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid;
+    height: 180px;
+    background-color: rgb(230, 228, 228);
+}
+
+.contenedor-redes {
+    width: 200px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 85%;
+    margin-top: 10px;
+}
+
+.contenedor-redes a {
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor-redes .fa-facebook {
+    font-size: 25px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-redes .fa-facebook:hover {
+    color: white;
+    background-color: blue;
+    box-shadow: 0 0 20px rgba(0, 20, 244, 0.6);
+    transform: translateY(-5px);
+}
+
+.contenedor-redes .fa-instagram {
+    font-size: 25px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-redes .fa-instagram:hover {
+    color: white;
+    background-color: purple;
+    box-shadow: 0 0 20px rgba(224, 0, 244, 0.6);
+    transform: translateY(-5px);
+}
+
+.contenedor-redes .fa-whatsapp {
+    font-size: 25px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-redes .fa-whatsapp:hover {
+    color: white;
+    background-color: greenyellow;
+    box-shadow: 0 0 20px rgba(102, 244, 0, 0.6);
+    transform: translateY(-5px);
+}
+
+.contenedor-redes .fa-twitter {
+    font-size: 25px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-redes .fa-twitter:hover {
+    color: white;
+    background-color: rgb(4, 251, 251);
+    box-shadow: 0 0 20px rgba(3, 235, 247, 0.6);
+    transform: translateY(-5px);
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.contenedor-logo {
+    display: flex;
+    cursor: default;
+}
+
+.contenedor-logo img {
+    display: flex;
+    margin-top: -120px;
+
+}
+
+.menu-secciones {
+    margin-left: auto;
+    margin-top: 70px;
+    padding: 10px;
+    display: flex;
+    width: 800px;
+    justify-content: space-around;
+}
+
+.menu-secciones a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    align-items: center;
+    height: 30px;
+}
+
+.menu-secciones .btn1 {
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 3px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.menu-secciones .btn1:hover {
+    background-color: orange ;
+    border: 1px solid black;
+    box-shadow: 0 0 10px orange;
+    transform: scale(1.1);
+}
+
+.menu-secciones .fa-shopping-cart {
+    font-size: 20px;
+    margin-left: 10px;
+    color: black;
+    background-color: transparent;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menu-secciones .fa-shopping-cart:hover {
+    transform: translateY(-5px);
+    background: rgb(0, 250, 129);
+    color: white;
+    border-radius: 5px;
+}
+
+.menu-secciones h2 {
+    position: relative;
+    display: flex;
+    font-size: 20px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.menu-secciones h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: greenyellow;
+    transition: width 0.5s ease;
+}
+
+.menu-secciones h2:hover::after {
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    position: relative;
+    margin-left: 330px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family:'Edu TAS Beginner';
+    font-size: 50px;
+    border-left: 4px solid rgb(51, 255, 0);
+    border-bottom: 4px solid rgb(51, 255, 0);
+    border-radius: 10px;
+    width: 18%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.principal {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contenedor-descripcion {
+    display: inline-flex;
+    position: relative;
+    margin-top: 50px;
+    border-right: 4px solid rgba(40, 40, 40, 0.6);
+    border-bottom: 4px solid rgba(42, 42, 42, 0.6);
+    color: black;
+    width: 30%;
+    height: 40%;
+    text-align: justify;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+    backdrop-filter: blur(5px);
+}
+
+.contenedor-servicios {
+    display: block;
+    margin-top: 100px;
+}
+
+.contenedor-servicios h2 {
+    text-align: center;
+    width: 20%;
+    margin-left: 40%;
+    border-radius: 30px;
+    border-left: 4px solid greenyellow;
+    border-bottom: 4px solid greenyellow;
+    padding: 10px;
+}
+
+.contenedor-servicios-objetos .contenedor-objetos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.contenedor-servicios-objetos .contenedor-objetos img {
+    border: 1px solid black;
+    border-radius: 30px;
+    border: 4px solid rgba(42, 42, 42, 0.6);
+    transition: transform 0.3s ease-in-out;
+}
+
+.contenedor-servicios .contenedor-parrafo {
+    display: flex;
+    margin-top: 50px;
+    border-bottom: 10px double greenyellow;
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 36%;
+    padding: 10px;
+}
+
+.contenedor-servicios .contenedor-parrafo p {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.contenedor-servicios-objetos .contenedor-objetos img:hover {
+    transform: scale(1.2);
+}
+
+.nosotros {
+    display: block;
+    margin-top: 80px;
+    padding: 40px;
+}
+
+.nosotros-titulo {
+    display: flex;
+    position: relative;
+    width: 90%;
+    margin-left: 70px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border-bottom: 4px solid rgb(51, 255, 0);
+    border-left: 4px solid rgb(51, 255, 0);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    color: black;
+    cursor: default;
+    backdrop-filter: blur(5px);
+}
+
+.nosotros-titulo h2 {
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+}
+
+.nosotros-titulo h3 {
+    position: absolute;
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 210px;
+    font-size: 20px;
+}
+
+.contenedor-nosotros {
+    display: flex;
+    justify-content: space-around;
+}
+.contenedor-objetivo {
+    position: relative;
+    display: block;
+    width: 20%;
+    margin-top: 50px;
+    border-bottom: 4px solid rgb(51, 255, 0);
+    border-left: 4px solid rgb(51, 255, 0);
+    border-top: 2px solid rgb(51, 255, 0);
+    border-right: 2px solid rgb(51, 255, 0);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(51, 255, 0, 0.6);
+    padding: 10px 10px;
+    transition: transform 0.5s ease-in-out;
+    color: black;
+    backdrop-filter: blur(5px);
+}
+
+.contenedor-objetivo:hover {
+    transform: scale(1.1);
+    
+}
+
+.contenedor-objetivo h3 {
+    margin-left: 25%;
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 3px solid greenyellow;
+    border-radius: 100px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.contenedor-objetivo p {
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 2;
+}
+
+.contenedor-nosotros1 {
+    position: relative;
+    left: 40%;
+}
+
+.equipo-titulo {
+    margin-top: 100px;
+    display: flex;
+    cursor: default;
+    padding: 10px 20px;
+    border-left: 4px solid rgb(51, 255, 0);
+    border-bottom: 4px solid rgb(51, 255, 0);
+    border-radius: 25px;
+    width: 90%;
+    margin-left: 70px;
+}
+
+.equipo-parrafo {
+    text-align: justify;
+    display: flex;
+    margin-top: 20px;
+    padding: 10px;
+    border: 4px solid rgb(51, 255, 0);
+    width:70%;
+    margin-left: 90px;
+}
+
+
+.contenedor-tecnico {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-tecnico-titulo {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-top: 50px;
+}
+
+.contenedor-equipo {
+    display: flex;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.contenedor-equipo-tecnico {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+}
+
+.contenedor-equipo-tecnico img {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.contenedor-equipo-tecnico-info {
+    margin-right: 30px;
+}
+
+.contenedor-equipo-tecnico h3 {
+    width: 250px;
+    text-align: center;
+    border-bottom: 5px solid rgb(51, 255, 0);
+    border-radius: 40px;
+    padding-bottom: 10px;
+    margin-left: 40px;
+}
+
+.contenedor-equipo-tecnico-info p {
+    width: 350px;
+    text-align: justify;
+    line-height: 2;
+}
+
+.contenedor-equipo-tecnico-redes {
+    display: flex;
+    justify-content: space-evenly;
+    width: 150px;
+    border: 1px solid black;
+    margin-left: 70px;
+}
+
+.contenedor-equipo-tecnico-redes a {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.contenedor-equipo-tecnico-redes .fa-facebook {
+    color: black;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.contenedor-equipo-tecnico-redes .fa-facebook:hover {
+    background-color: rgba(0, 0, 255, 0.804);
+    color: white;
+    transform: translateY(-5px);
+}
+.contenedor-equipo-tecnico-redes .fa-whatsapp {
+    color: black;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.contenedor-equipo-tecnico-redes .fa-whatsapp:hover {
+    background-color: rgb(68, 255, 0);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.contenedor-equipo-tecnico-redes .fa-instagram {
+    color: black;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.contenedor-equipo-tecnico-redes .fa-instagram:hover {
+    background-color: rgb(217, 0, 255);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.contenedor-equipo-tecnico-redes .fa-twitter {
+    color: black;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.contenedor-equipo-tecnico-redes .fa-twitter:hover {
+    background-color: rgb(0, 225, 255);
+    color: white;
+    transform: translateY(-5px);
+}
+
+
+
+.contenedor-pie-pagina {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(230, 228, 228);
+    height: 100px;
+}
+
+.contenedor-pie-pagina .contenedor-info-contacto {
+    display: block;
+    border-right: 4px solid black ;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 20%;
+    margin-top: 10px;
+}
+
+.contenedor-pie-pagina .contenedor-info-contacto p {
+    margin-bottom: 7px;
+}
+
+.contenedor-pie-pagina .contenedor-info-contacto a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-pie-internas {
+    display: flex;
+    flex-direction: column;
+    border-right: 4px solid black;
+    width: 18%;
+    margin-top: 10px;
+}
+
+.contenedor-pie-pagina .contenedor-pie-internas a {
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-pie-internas a{
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.contenedor-pie-pagina .contenedor-pie-internas a:hover {
+    transform: scaleX(1.1);
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-legales {
+    display: flex;
+    flex-direction: column;
+    border-right: 4px solid black;
+    padding: 0px 10px;
+    width: 15%;
+    margin-top: 10px;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-legales a {
+    text-decoration: none;
+    margin-bottom: 4px;
+    color: black;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-legales a:hover {
+    transform: scale(1.1);
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 5%;
+    margin-left: -9px;
+    border-right: 4px solid black;
+    margin-top: 10px;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-facebook {
+    font-size: 20px;
+    background-color: transparent;
+    text-align: center;
+    width: 30px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-facebook:hover {
+    color: white;
+    background-color: blue;
+    transform: scale(1.2);
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-instagram {
+    font-size: 20px;
+    background-color: transparent;
+    text-align: center;
+    width: 30px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-instagram:hover {
+    color: white;
+    background-color: purple;
+    transform: scale(1.2);
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-whatsapp {
+    font-size: 20px;
+    background-color: transparent;
+    text-align: center;
+    width: 30px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-whatsapp:hover {
+    color: white;
+    background-color: greenyellow;
+    transform: scale(1.2);
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-twitter {
+    font-size: 20px;
+    background-color: transparent;
+    text-align: center;
+    width: 30px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.contenedor-pie-pagina .contenedor-enlaces-redes .fa-twitter:hover {
+    color: white;
+    background-color: rgb(4, 251, 251);
+    transform: scale(1.2);
+}
+
+.contenedor-pie-pagina .contenedor-derechos-autor {
+    display: flex;
+    width: 18%;
+    border-right: 4px solid black;
+}
+
+.contenedor-pie-pagina .contenedor-derechos-autor p {
+    margin-top: 25px;
+    font-size: 17px;
+}
+
+.contenedor-pie-pagina .contenedor-volver-arriba {
+    display: flex;
+}
+
+.contenedor-pie-pagina .contenedor-volver-arriba button {
+    margin-top: 25px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contenedor-pie-pagina .contenedor-volver-arriba button:hover {
+    background-color: aqua;
+    border: 2px solid rgb(0, 0, 0);
+}

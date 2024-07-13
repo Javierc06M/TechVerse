@@ -1,0 +1,40 @@
+.carousel {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 50%;
+    max-width: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.carousel-item img {
+    display: block;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.carousel-item h5 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel-inner a {
+    text-decoration: none;
+    color: black;
+}
+
